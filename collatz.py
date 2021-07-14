@@ -48,8 +48,17 @@ while menu not in ['1','2']:
     menu = input("\nType 1 or 2 and press Enter: ")
 
 if menu == '1':
-    # Taking starting number from input
-    n = int(input("\nGive an integer number above 0: "))
+    n = 0
+    while n < 1:
+        try:
+            # Taking starting number from input
+            n = int(input("\nGive an integer number above 0: "))
+            while n < 1:
+                print("number above 0 only!")
+                n = int(input("\nGive an integer number above 0: "))
+        except ValueError:
+            print("Please enter a number!")
+
     step, x, y = seq(n)
     # Size of graph
     plt.figure(figsize=(14,10))
