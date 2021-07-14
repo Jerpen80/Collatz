@@ -14,8 +14,8 @@ n = int(input("Give an integer number above 0: "))
 number = n
 step = 0
 while n != 1:
-    if n%2 == 0:
-        n = n/2
+    if n % 2 == 0:
+        n = n / 2
         print(int(n))
         step += 1
         x.append(step)
@@ -33,7 +33,7 @@ plt.scatter(x, y)
 plt.plot(x, y)
 
 plt.xlabel('step count')
-plt.ylabel('result')
+plt.ylabel('term')
 
 plt.title('Collatz conjecture applied on: '+str(number)+', in '+str(step)+' steps')
 
