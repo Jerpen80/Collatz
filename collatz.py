@@ -24,14 +24,16 @@ def seq(n):
     while n != 1:
         if n % 2 == 0:
             n /= 2
-            print(int(n))
+            if menu == '1':
+                print(int(n))
             step += 1
             x.append(int(step))
             y.append(int(n))
 
         else:
             n = 3 * n + 1
-            print(int(n))
+            if menu == '1':
+                print(int(n))
             step += 1
             x.append(int(step))
             y.append(int(n))
@@ -53,15 +55,15 @@ if menu == '1':
     plt.figure(figsize=(14,10))
 
     # Drawing points and lines
-    plt.scatter(x, y)
+    #plt.scatter(x, y)
     plt.plot(x, y)
 
     # To make 0 on x and y axes
-    #plt.xlim(xmin = 0)
+    plt.xlim(xmin = 0)
     plt.ylim(ymin = 1)
 
     # Naming x and y axes
-    plt.xlabel('step count')
+    plt.xlabel('step count \n \n The highest point is: '+str(max(y)))
     plt.ylabel('term')
 
     # Naming title of graph
@@ -94,25 +96,29 @@ elif menu == '2':
     
     steps = []
     iterations = []
-    for i in range(start,end):
+    for i in range(start,end+1):
+        print("Current number:",i)
         step, x, y = seq(i)
         iterations.append(i)
         steps.append(x[-1])
-
+    moststeps = max(steps)
+    msnr = steps.index(moststeps)
+    msnr2 = iterations[msnr]
+    print("Highest number of steps is:",moststeps,"from number:",msnr2)
     
     # Size of graph
     plt.figure(figsize=(14,10))
 
     # Drawing points and lines
-    plt.scatter(iterations, steps)
+    #plt.scatter(iterations, steps)
     plt.plot(iterations, steps)
 
     # To make 0 on x and y axes
-    plt.xlim(xmin = 0)
     plt.ylim(ymin = 0)
+    plt.xlim(xmin = start)
 
     # Naming x and y axes
-    plt.xlabel('input number')
+    plt.xlabel('input number\n \nHighest number of steps is: '+str(moststeps)+' from number: '+str(msnr2))
     plt.ylabel('number of steps to reach 1')
 
     # Naming title of graph
@@ -121,6 +127,8 @@ elif menu == '2':
     # Launching graph window
     plt.show()
 
+print("\nThank you for using my tool! \n \nJeroen Penders\n")
+    
 
 
 
