@@ -11,7 +11,6 @@ from matplotlib import pyplot as plt
 
 n = int(input("\nGive an integer number above 0: "))
 
-number = n
 step = 0
 
 x = [step]
@@ -39,6 +38,6 @@ plt.plot(x, y)
 plt.xlabel('step count')
 plt.ylabel('term')
 
-plt.title('Collatz conjecture applied on: '+str(number)+', in '+str(step)+' steps')
+plt.title('Collatz conjecture: '+str(y[0])+' reached 1 in '+str(step)+' steps')
 
 plt.show()
