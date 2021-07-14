@@ -8,11 +8,15 @@
 # The conjecture is that no matter what value of n, the sequence will always reach 1
 
 from matplotlib import pyplot as plt
-x = []
-y = []
-n = int(input("Give an integer number above 0: "))
+
+n = int(input("\nGive an integer number above 0: "))
+
 number = n
 step = 0
+
+x = [step]
+y = [n]
+
 while n != 1:
     if n % 2 == 0:
         n = n / 2
