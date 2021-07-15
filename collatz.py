@@ -123,6 +123,8 @@ elif menu == '2':
     msnr2 = iterations[msnr]
     print("Highest number of steps is:",moststeps,"from number:",msnr2)
     
+    # Drawing the graph
+    
     # Size of graph
     plt.figure(figsize=(14,10))
 
