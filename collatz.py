@@ -3,6 +3,7 @@
 
 print("\nWelcome to my app to display Collatz Conjecture sequences in graphs")
 
+# What is Collatz conjecture?
 print("""\nThe Collatz conjecture is a conjecture in mathematics that concerns sequences defined as follows:
 Start with any positive integer n. 
 Then each term is obtained from the previous term as follows: 
@@ -17,10 +18,12 @@ def seq(n):
     # Counting the number of steps to reach 1
     step = 0
     
-    # Creating lists for the graph
+    # Creating lists for the graph with starting position
     x = [step]
     y = [n]
     
+    # Loop to do the Collatz sequence until n is equal to 1 
+    # If menu choice was 1 you get more detailed information
     while n != 1:
         if n % 2 == 0:
             n /= 2
@@ -63,7 +66,7 @@ if menu == '1':
     # Size of graph
     plt.figure(figsize=(14,10))
 
-    # Drawing points and lines
+    # Drawing points(scatter) and lines(plot)
     #plt.scatter(x, y)
     plt.plot(x, y)
 
@@ -96,20 +99,25 @@ elif menu == '2':
     
     while end <= start:
         try:
-            end = int(input("Give last number of the range "))
+            end = int(input("Give last number of the range: "))
             while end <= start:
                 print("number has to be above your starting number")
-                end = int(input("Give last number of the range"))
+                end = int(input("Give last number of the range: "))
         except ValueError:
             print("Numbers only")
     
     steps = []
     iterations = []
-    for i in range(start,end+1):
-        print("Current number:",i)
+    
+    # For loop to do the sequence on a range of numbers
+    for i in range(start,end+1): # ,2 after end+1 for only odd numbers(important that you start with an odd number) that will make it faster
+        if i % 1000 == 0:
+            print("Current number:",i)
         step, x, y = seq(i)
         iterations.append(i)
         steps.append(x[-1])
+
+    # Determining which iteration had highest number of steps to reach 1    
     moststeps = max(steps)
     msnr = steps.index(moststeps)
     msnr2 = iterations[msnr]
@@ -118,7 +126,7 @@ elif menu == '2':
     # Size of graph
     plt.figure(figsize=(14,10))
 
-    # Drawing points and lines
+    # Drawing points(scatter) and lines(plot)
     #plt.scatter(iterations, steps)
     plt.plot(iterations, steps)
 
